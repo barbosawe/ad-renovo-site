@@ -1,0 +1,168 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assembleia de Deus Renovo</title>
+    <link rel="icon" type="image/jpeg" href="{% static 'adrenovo1.jpeg' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+
+<body>
+<nav id="inicio" class="navbar">
+    <div class="logo">
+        <img src="{% static 'logoRenovo.png' %}" alt="Logo AD Renovo" class="logo-image">
+        <span>AD Renovo</span>
+    </div>
+
+    <div class="menu-icon" onclick="toggleMenu()">
+        ☰
+    </div>
+
+    <ul class="nav-links" id="navLinks">
+        <li><a href="javascript:void(0)" onclick="window.scrollTo({top: 0, behavior: 'smooth'}); toggleMenu();">
+        Início</a></li> 
+        <li><a href="#quem-somos" onclick="toggleMenu()">Quem Somos</a></li>
+        <li><a href="#departamentos" onclick="toggleMenu()">Departamentos</a></li>
+        <li><a href="#oracao" onclick="toggleMenu()">Pedidos de Oração</a></li>
+        <li><a href="#contribuicao" onclick="toggleMenu()">Dízimos e Ofertas</a></li>
+        
+        <li class="dropdown">
+            <a href="javascript:void(0)" class="dropbtn">Área do Membro ▾</a>
+            <div class="dropdown-content">
+                <a href="https://online.church.com.br/21234/cadastro" target="_blank">Cadastro de Membro</a>
+                <a href="https://play.google.com/store/apps/details?id=br.com.churchdigital.A21234" target="_blank">Baixar App (Android)</a>
+                <a href="https://apps.apple.com/us/app/ad-renovo/id6736529811" target="_blank">Baixar App (iOS)</a>
+            </div>
+        </li>
+
+        <li><a href="#contato" onclick="toggleMenu()">Contato</a></li>
+    </ul>
+</nav>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.getElementById("navLinks");
+        navLinks.classList.toggle("active");
+    }
+</script>
+
+    <header class="hero">
+        <div class="container hero-content">
+            <h2 class="hero-subtitle">2026 <span class="destaque">Ano da Plenitude</span></h2>
+            <h1 class="hero-title">Assembleia de Deus Renovo</h1>
+            <a href="#quem-somos" class="btn">Conheça nossa Igreja</a>
+        </div>
+    </header>
+
+    <section id="quem-somos" class="section">
+        <div class="container">
+            <h2>Quem Somos</h2>
+            <p>A Assembleia de Deus Renovo é uma comunidade apaixonada por Jesus Cristo. Nossa missão é pregar o
+                evangelho, fazer discípulos e amar o próximo. Cremos na Bíblia como a Palavra de Deus e buscamos viver
+                de acordo com seus ensinamentos diários.</p>
+        </div>
+    </section>
+
+    <section id="departamentos" class="section bg-light">
+        <div class="container">
+            <h2>Nossos Departamentos</h2>
+            <div class="grid-cards">
+                <div class="card">
+                    <h3>Renovo Kids / Teens</h3>
+                    <p>Ensinando a palavra de Deus aos pequeninos com amor e alegria.</p>
+                </div>
+                <div class="card">
+                    <h3>Juventude Renovo JR</h3>
+                    <p>Uma juventude forte, unida e avivada pelo Espírito Santo.</p>
+                </div>
+                <div class="card">
+                    <h3>Círculo de Oração</h3>
+                    <p>Mulheres guerreiras que sustentam a igreja através da intercessão contínua.</p>
+                </div>
+                <div class="card">
+                    <h3>Renovo Music</h3>
+                    <p>Dedicados a conduzir a igreja à presença de Deus através da música.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="oracao" class="section">
+        <div class="container">
+            <h2>Caixa de Pedidos de Oração</h2>
+            <p>Como podemos orar por você hoje? Deixe seu pedido e nossa equipe de intercessão estará clamando pela sua
+                vida.</p>
+
+            {% if messages %}
+            <div class="mensagens-alerta">
+                {% for message in messages %}
+                <div class="alerta alerta-sucesso">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <form class="oracao-form" action="{% url 'enviar_pedido' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="nome" placeholder="Seu Nome (Opcional)">
+                <input type="email" name="email" placeholder="Seu E-mail (Opcional)">
+                <textarea name="pedido" rows="5" placeholder="Escreva seu pedido de oração aqui..." required></textarea>
+                <button type="submit" class="btn">Enviar Pedido</button>
+            </form>
+        </div>
+    </section>
+
+    <section id="contribuicao" class="section bg-light">
+        <div class="container">
+            <h2>Dízimos e Ofertas</h2>
+            <p>"Cada um contribua segundo propôs no seu coração; não com tristeza, ou por necessidade; porque Deus ama
+                ao que dá com alegria." - 2 Coríntios 9:7</p>
+
+           <div class="pix-box">
+                <h3>Contribua via PIX</h3>
+                <p><strong>Chave CNPJ:</strong> 37.754.896/0001-04</p>
+    
+            <div class="qr-placeholder">
+            <img src="../static/imagempix2.jpeg" alt="QR Code PIX AD Renovo" class="qr-image">
+            </div>
+    
+                <p>Nome: Assembleia de Deus Renovo</p>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contato" class="section">
+        <div class="container">
+            <h2>Contato e Localização</h2>
+            <div class="contato-info">
+                <p><strong>Endereço:</strong> Avenida Sapopemba, 11194 - Jardim Sapopemba, São Paulo - SP</p>
+                <p><strong>Telefone/WhatsApp:</strong> (11) 91516-8550</p>
+                <p><strong>E-mail:</strong> contato@adrenovo.com.br</p>
+                <p><strong>Dias de Culto:</strong><br>
+                    Terça-feira: Culto de Ensino às 19:30<br>
+                    Domingo: Culto da Família às 18:30</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="redes-sociais">
+                <h3>Siga-nos nas Redes Sociais</h3>
+                <a href="https://www.instagram.com/_adrenovo/" target="_blank" rel="external">Instagram</a> |
+                <a href="#">Facebook</a> |
+                <a href="https://www.youtube.com/@adrenovo1166/featured" target="_blank" rel="external">YouTube</a>
+            </div>
+            <p>&copy; 2026 Assembleia de Deus Renovo. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
