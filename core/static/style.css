@@ -45,7 +45,7 @@ a {
 }
 
 .bg-light {
-    background-color: var(--bg-light-dark); /* Fundo alternativo nas seções */
+    background-color: var(--bg-light-dark);
 }
 
 h2 {
@@ -54,7 +54,9 @@ h2 {
     margin-bottom: 20px;
 }
 
-/* Botões Globais */
+/* =========================================
+   2. BOTÕES GLOBAIS
+   ========================================= */
 .btn {
     display: inline-block;
     background-color: var(--secondary-color);
@@ -73,7 +75,7 @@ h2 {
 }
 
 /* =========================================
-   2. NAVEGAÇÃO (MENU DESKTOP)
+   3. NAVEGAÇÃO E MENU (DESKTOP)
    ========================================= */
 .navbar {
     display: flex;
@@ -104,7 +106,6 @@ h2 {
     font-weight: 700;
 }
 
-/* Lista de Links Padrão */
 .nav-links {
     list-style: none;
     display: flex;
@@ -125,7 +126,6 @@ h2 {
     color: var(--secondary-color);
 }
 
-/* Ícone do Menu Celular (Escondido no PC) */
 .menu-icon {
     display: none;
     font-size: 2rem;
@@ -134,7 +134,7 @@ h2 {
 }
 
 /* =========================================
-   3. MENU SUSPENSO (DROPDOWN)
+   4. MENU SUSPENSO (DROPDOWN)
    ========================================= */
 .dropdown {
     position: relative;
@@ -175,7 +175,7 @@ h2 {
 }
 
 /* =========================================
-   4. SESSÃO HERO (Imagem de Fundo e Títulos)
+   5. SESSÃO HERO (INÍCIO) E ANIMAÇÃO
    ========================================= */
 .hero {
     position: relative;
@@ -196,7 +196,6 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    /* Gradiente e imagem de fundo */
     background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(214, 158, 46, 0.4)), 
                 url('adrenovoimagem.jpeg') center/cover;
     animation: heroImageAnimation 5s ease-in-out infinite alternate;
@@ -205,7 +204,7 @@ h2 {
 
 @keyframes heroImageAnimation {
     0% { opacity: 0.7; transform: scale(1); }
-    100% { opacity: 1; transform: scale(1.05); } /* Leve zoom e clareamento */
+    100% { opacity: 1; transform: scale(1.05); }
 }
 
 .hero-subtitle {
@@ -220,7 +219,7 @@ h2 {
 
 .hero-title {
     font-size: 3rem;
-    margin-bottom: 180px;
+    margin-bottom: 30px;
     color: var(--secondary-color); 
     font-weight: 800;
     line-height: 1.1;
@@ -228,7 +227,74 @@ h2 {
 }
 
 /* =========================================
-   5. CARTÕES (DEPARTAMENTOS E PIX)
+   6. QUEM SOMOS E ANIMAÇÕES REVEAL
+   ========================================= */
+.quem-somos-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: justify; 
+}
+
+.pilares-lista {
+    list-style: none;
+    text-align: left;
+    margin: 30px 0;
+    padding-left: 0;
+}
+
+.pilares-lista li {
+    background: var(--card-bg);
+    margin-bottom: 15px;
+    padding: 15px;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 0 8px 8px 0;
+    transition: transform 0.3s;
+}
+
+.pilares-lista li:hover {
+    transform: translateX(10px); 
+}
+
+.pilares-lista li strong {
+    color: var(--secondary-color);
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.final-convite {
+    border-top: 1px solid var(--bg-light-dark);
+    padding-top: 20px;
+    margin-top: 20px;
+    font-style: italic;
+    text-align: justify; 
+    width: 100%;
+}
+
+.final-texto {
+    display: block; 
+    text-align: center; 
+    margin-top: 15px; 
+    color: var(--secondary-color); 
+    font-weight: 700;
+    font-style: normal; 
+    font-size: 1.1rem;
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================================
+   7. DEPARTAMENTOS (GRID CARDS)
    ========================================= */
 .grid-cards {
     display: grid;
@@ -251,6 +317,9 @@ h2 {
     margin-bottom: 15px;
 }
 
+/* =========================================
+   8. PIX E QR CODE
+   ========================================= */
 .pix-box {
     background: var(--card-bg);
     color: var(--text-muted);
@@ -259,7 +328,6 @@ h2 {
     max-width: 500px;
     margin: 30px auto 0;
     box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-
 }
 
 .pix-box h3 {
@@ -267,7 +335,6 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* Container da Imagem do PIX */
 .qr-placeholder {
     width: 220px; 
     height: auto;
@@ -275,10 +342,8 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-
 }
 
-/* Estilo direto na Imagem do QR Code */
 .qr-image {
     width: 100%; 
     height: auto;
@@ -288,7 +353,7 @@ h2 {
 }
 
 /* =========================================
-   6. FORMULÁRIO DE ORAÇÃO E CONTATO
+   9. FORMULÁRIO DE ORAÇÃO E CONTATO
    ========================================= */
 .oracao-form {
     max-width: 600px;
@@ -321,14 +386,13 @@ h2 {
     margin-bottom: 15px;
 }
 
-/* Alertas de Sucesso do Formulário */
 .mensagens-alerta {
     max-width: 600px;
     margin: 20px auto;
 }
 
 .alerta-sucesso {
-    background-color: #064E3B; /* Verde escuro */
+    background-color: #064E3B;
     color: #D1FAE5;
     border: 1px solid #059669;
     padding: 15px;
@@ -338,7 +402,7 @@ h2 {
 }
 
 /* =========================================
-   7. RODAPÉ (FOOTER)
+   10. RODAPÉ (FOOTER)
    ========================================= */
 .footer {
     background-color: var(--primary-color);
@@ -357,30 +421,28 @@ h2 {
 }
 
 /* =========================================
-   8. RESPONSIVIDADE (MENU CELULAR E AJUSTES)
+   11. RESPONSIVIDADE (CELULAR E TABLETS)
    ========================================= */
 @media (max-width: 768px) {
-    /* Mostra o ícone de hambúrguer */
+    /* Menu Hambúrguer */
     .menu-icon {
         display: block; 
     }
 
-    /* Transforma a barra de links em um menu vertical escondido */
     .nav-links {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 70px; /* Logo abaixo da navbar */
-        left: -100%; /* Esconde o menu fora da tela */
+        top: 70px; 
+        left: -100%; 
         width: 100%;
         background-color: var(--primary-color);
         text-align: center;
-        transition: 0.3s ease-in-out; /* Desliza suavemente */
+        transition: 0.3s ease-in-out; 
         padding-bottom: 20px;
         box-shadow: 0 10px 10px rgba(0,0,0,0.5);
     }
 
-    /* O JavaScript usa essa classe para mostrar o menu */
     .nav-links.active {
         left: 0; 
     }
@@ -389,7 +451,6 @@ h2 {
         margin: 15px 0;
     }
 
-    /* Ajuste visual para o menu suspenso dentro do celular */
     .dropdown-content {
         position: relative;
         min-width: 100%;
@@ -397,108 +458,40 @@ h2 {
         background-color: rgba(0,0,0,0.2); 
     }
 
-    /* Reduz o tamanho da fonte da página inicial para não quebrar */
-    .hero-title {
-        font-size: 2rem;
-    }
-    .hero-subtitle {
-        font-size: 0.9rem; 
-        margin-bottom: 15px;
-    }
-}
-
-/* Estilização da Seção Quem Somos */
-.quem-somos-content p {
-    margin-bottom: 20px;
-    font-size: 1.1rem;
-    color: var(--text-muted);
-    text-align: justify; /* Deixa o texto alinhado e elegante */
-}
-
-.pilares-lista {
-    list-style: none;
-    text-align: left;
-    margin: 30px 0;
-    padding-left: 0;
-}
-
-.pilares-lista li {
-    background: var(--card-bg);
-    margin-bottom: 15px;
-    padding: 15px;
-    border-left: 4px solid var(--secondary-color);
-    border-radius: 0 8px 8px 0;
-    transition: transform 0.3s;
-}
-
-.pilares-lista li:hover {
-    transform: translateX(10px); /* Efeito de deslize ao passar o mouse */
-}
-
-.pilares-lista li strong {
-    color: var(--secondary-color);
-    display: block;
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-}
-
-.final-convite {
-    border-top: 1px solid var(--bg-light-dark);
-    padding-top: 20px;
-    margin-top: 20px;
-    font-style: italic;
-    
-    /* Faz o texto principal ocupar a largura da tela e ficar alinhado nas bordas */
-    text-align: justify; 
-    width: 100%;
-}
-
-.final-texto {
-    /* O segredo: display block faz ele se comportar como um novo parágrafo */
-    display: block; 
-    
-    /* Agora centralizamos apenas ele */
-    text-align: center; 
-    
-    margin-top: 15px; /* Dá um espaço em relação ao texto de cima */
-    color: var(--secondary-color); /* Dourado para destacar */
-    font-weight: 700;
-    font-style: normal; /* Remove o itálico apenas do convite para dar seriedade */
-    font-size: 1.1rem;
-}
-
-/* =========================================
-   ANIMAÇÃO DE REVELAÇÃO (Scroll Reveal)
-   ========================================= */
-.reveal {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease-out;
-}
-
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-/* PARA IMAGEM NO CELULAR*/
-@media (max-width: 768px) {
+    /* HERO NO CELULAR ESTÁ AQUI */
     .hero {
-        /* 1. Faz a seção ter 100% da altura da tela do celular */
-        height: 100vh; 
-        
-        /* 2. Garante que a imagem preencha tudo sem distorcer */
-        background-size: cover;
-        background-position: center center;
-
-        /* 3. Ajuste de espaçamento interno para o conteúdo não colar nas bordas */
-        padding: 20px;
+        min-height: 100vh; 
+        height: auto; 
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: center;
+        padding: 100px 20px;
+        position: relative;
     }
 
-    /* Opcional: Diminuir um pouco o tamanho dos títulos para caberem melhor na tela inteira */
+    .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        height: 100%;
+        /* Força a imagem a esticar corretamente no celular */
+        background-attachment: scroll; 
+        background-size: cover !important; 
+        background-position: center center !important;
+        z-index: -1;
+    }
+
     .hero-title {
         font-size: 1.8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.9rem; 
+        margin-bottom: 15px;
     }
 }
