@@ -50,6 +50,25 @@
         const navLinks = document.getElementById("navLinks");
         navLinks.classList.toggle("active");
     }
+    
+    // Função para animar elementos ao rolar a página
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+
+// Executa a função sempre que rolar a página
+window.addEventListener("scroll", reveal);
+
+// Executa uma vez ao carregar para mostrar o que já está na tela
+reveal();
 </script>
 
     <header class="hero">
@@ -60,14 +79,24 @@
         </div>
     </header>
 
-    <section id="quem-somos" class="section">
-        <div class="container">
-            <h2>Quem Somos</h2>
-            <p>A Assembleia de Deus Renovo é uma comunidade apaixonada por Jesus Cristo. Nossa missão é pregar o
-                evangelho, fazer discípulos e amar o próximo. Cremos na Bíblia como a Palavra de Deus e buscamos viver
-                de acordo com seus ensinamentos diários.</p>
-        </div>
-    </section>
+<section id="quem-somos" class="section">
+    <div class="container quem-somos-content">
+        <h2 class="reveal">Assembleia de Deus Ministério Renovo</h2>
+        
+        <p class="reveal">A Assembleia de Deus Ministério Renovo é uma igreja fundamentada na identidade plena em Cristo. Com raízes no perfil assembleiano clássico, nossa caminhada é guiada pelo compromisso inabalável com as Escrituras e pela adoração como um estilo de vida.</p>
+        
+        <p class="reveal">Desde 2019, temos o privilégio de servir ao subdistrito de Sapopemba, proclamando o Evangelho transformador de Jesus com coragem e esperança. Nossa missão vai além de congregar; estamos aqui para edificar vidas sobre pilares sólidos que sustentam nossa fé e nossa prática ministerial:</p>
+
+        <ul class="pilares-lista reveal">
+            <li><strong>Autoridade Bíblica:</strong> A Palavra de Deus é a nossa única regra de fé e prática, o alicerce onde repousa nossa confiança.</li>
+            <li><strong>Poder do Espírito:</strong> Cremos na manifestação real e presente do Espírito Santo, que capacita a igreja a viver e testemunhar com ousadia.</li>
+            <li><strong>Vida em Cristo:</strong> Nosso maior objetivo é que cada pessoa experimente um relacionamento profundo, genuíno e crescente com o Senhor Jesus.</li>
+            <li><strong>Crescimento sem Medidas:</strong> Movidos pela graça, cremos em uma igreja que avança, multiplica e frutifica, impactando vidas e restaurando famílias.</li>
+        </ul>
+
+        <p class="reveal final-convite">Somos um Ministério que valoriza o passado que nos forjou, mas que mantém o olhar atento ao que Deus continua fazendo hoje. <strong>Convidamos você a fazer parte dessa história de renovo e propósito.</strong></p>
+    </div>
+</section>
 
     <section id="departamentos" class="section bg-light">
         <div class="container">
@@ -130,7 +159,7 @@
                 <p><strong>Chave CNPJ:</strong> 37.754.896/0001-04</p>
     
             <div class="qr-placeholder">
-            <img src="../static/imagempix2.jpeg" alt="QR Code PIX AD Renovo" class="qr-image">
+            <img src="{% static 'imagempix2.jpeg' %}" alt="QR Code PIX AD Renovo" class="qr-image">
             </div>
     
                 <p>Nome: Assembleia de Deus Renovo</p>
@@ -148,7 +177,7 @@
                 <p><strong>E-mail:</strong> contato@adrenovo.com.br</p>
                 <p><strong>Dias de Culto:</strong><br>
                     Terça-feira: Culto de Ensino às 19:30<br>
-                    Domingo: Culto da Família às 18:30</p>
+                    Domingado: Culto da Família às 18:30</p>
             </div>
         </div>
     </section>

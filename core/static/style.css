@@ -406,3 +406,58 @@ h2 {
         margin-bottom: 15px;
     }
 }
+
+/* Estilização da Seção Quem Somos */
+.quem-somos-content p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    text-align: justify; /* Deixa o texto alinhado e elegante */
+}
+
+.pilares-lista {
+    list-style: none;
+    text-align: left;
+    margin: 30px 0;
+    padding-left: 0;
+}
+
+.pilares-lista li {
+    background: var(--card-bg);
+    margin-bottom: 15px;
+    padding: 15px;
+    border-left: 4px solid var(--secondary-color);
+    border-radius: 0 8px 8px 0;
+    transition: transform 0.3s;
+}
+
+.pilares-lista li:hover {
+    transform: translateX(10px); /* Efeito de deslize ao passar o mouse */
+}
+
+.pilares-lista li strong {
+    color: var(--secondary-color);
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.final-convite {
+    border-top: 1px solid var(--bg-light-dark);
+    padding-top: 20px;
+    font-style: italic;
+}
+
+/* =========================================
+   ANIMAÇÃO DE REVELAÇÃO (Scroll Reveal)
+   ========================================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
