@@ -445,7 +445,26 @@ h2 {
 .final-convite {
     border-top: 1px solid var(--bg-light-dark);
     padding-top: 20px;
+    margin-top: 20px;
     font-style: italic;
+    
+    /* Faz o texto principal ocupar a largura da tela e ficar alinhado nas bordas */
+    text-align: justify; 
+    width: 100%;
+}
+
+.final-texto {
+    /* O segredo: display block faz ele se comportar como um novo parágrafo */
+    display: block; 
+    
+    /* Agora centralizamos apenas ele */
+    text-align: center; 
+    
+    margin-top: 15px; /* Dá um espaço em relação ao texto de cima */
+    color: var(--secondary-color); /* Dourado para destacar */
+    font-weight: 700;
+    font-style: normal; /* Remove o itálico apenas do convite para dar seriedade */
+    font-size: 1.1rem;
 }
 
 /* =========================================
