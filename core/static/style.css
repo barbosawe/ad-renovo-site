@@ -480,3 +480,25 @@ h2 {
     opacity: 1;
     transform: translateY(0);
 }
+/* PARA IMAGEM NO CELULAR*/
+@media (max-width: 768px) {
+    .hero {
+        /* 1. Faz a seção ter 100% da altura da tela do celular */
+        height: 100vh; 
+        
+        /* 2. Garante que a imagem preencha tudo sem distorcer */
+        background-size: cover;
+        background-position: center center;
+
+        /* 3. Ajuste de espaçamento interno para o conteúdo não colar nas bordas */
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    /* Opcional: Diminuir um pouco o tamanho dos títulos para caberem melhor na tela inteira */
+    .hero-title {
+        font-size: 1.8rem;
+    }
+}
