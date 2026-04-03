@@ -50,13 +50,12 @@
         </ul>
     </nav>
 
-    
-
-        <!--<div class="container hero-content">
-            <h2 class="hero-subtitle">2026 <span class="destaque">Ano da Plenitude</span></h2>
-            <h1 class="hero-title">Assembleia de Deus Renovo</h1>
-            <a href="#quem-somos" class="btn">Conheça nossa Igreja</a>
-        </div> -->
+    <header class="hero">
+        <picture>
+            <source media="(max-width: 767px)" srcset="{% static 'adrenovoimagem-pequena.jpeg' %}">
+            <source media="(max-width: 1023px)" srcset="{% static 'adrenovoimagem-media.jpeg' %}">
+            <img src="{% static 'adrenovoimagem.jpeg' %}" alt="Banner Institucional AD Renovo 2026" class="hero-banner-img">
+        </picture>
     </header>
 
     <section id="quem-somos" class="section">
