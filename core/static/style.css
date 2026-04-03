@@ -222,7 +222,7 @@ h2 {
     }
 }
 
-.hero-subtitle {
+/*.hero-subtitle {
     font-size: 1.2rem;
     font-weight: 600;
     color: var(--white);
@@ -230,16 +230,16 @@ h2 {
     letter-spacing: 1.5px;
     text-transform: uppercase;
     opacity: 0.9;
-}
+}*/
 
-.hero-title {
+/*.hero-title {
     font-size: 3rem;
     margin-bottom: 30px;
     color: var(--secondary-color);
     font-weight: 800;
     line-height: 1.1;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
-}
+}*/
 
 /* =========================================
    6. QUEM SOMOS E ANIMAÇÕES REVEAL
@@ -564,4 +564,20 @@ h2 {
 /* No site, para não ter rolagem enquanto carrega */
 body.carregando {
     overflow: hidden;
+}
+
+/* Tablet (Telas até 1023px) - Imagem do fundo do Banner */
+@media (max-width: 1023px) {
+    .hero::before {
+        background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(214, 158, 46, 0.4)),
+        url('adrenovo-media.jpeg') center/cover;
+    }
+}
+
+/* Celular (Telas até 767px) - Imagem do fundo do Banner */
+@media (max-width: 767px) {
+    .hero::before {
+        background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(214, 158, 46, 0.4)),
+        url('adrenovo-pequena.jpeg') center/cover;
+    }
 }
