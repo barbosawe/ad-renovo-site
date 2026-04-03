@@ -84,22 +84,39 @@
         <div class="container">
             <h2 class="reveal">Nossos Departamentos</h2>
             <div class="grid-cards reveal">
+                
                 <div class="card">
-                    <h3>Renovo Kids / Teens</h3>
-                    <p>Ensinando a palavra de Deus aos pequeninos com amor e alegria.</p>
+                    <a href="{% url 'galeria_kids' %}" class="link-departamento">
+                        <img src="{% static 'kids.jpeg' %}" alt="Renovo Kids" class="img-departamento">
+                        <h3>Renovo Kids / Teens</h3>
+                        <p>Ensinando a palavra de Deus aos pequeninos com amor e alegria.</p>
+                    </a>
                 </div>
+
                 <div class="card">
-                    <h3>Juventude Renovo JR</h3>
-                    <p>Uma juventude forte, unida e avivada pelo Espírito Santo.</p>
+                    <a href="{% url 'galeria_jovens' %}" class="link-departamento">
+                        <img src="{% static 'jovens.jpeg' %}" alt="Juventude Renovo JR" class="img-departamento">
+                        <h3>Juventude Renovo JR</h3>
+                        <p>Uma juventude forte, unida e avivada pelo Espírito Santo.</p>
+                    </a>
                 </div>
+
                 <div class="card">
-                    <h3>Círculo de Oração</h3>
-                    <p>Mulheres guerreiras que sustentam a igreja através da intercessão contínua.</p>
+                    <a href="{% url 'galeria_circulo' %}" class="link-departamento">
+                        <img src="{% static 'circulo.jpeg' %}" alt="Círculo de Oração" class="img-departamento">
+                        <h3>Círculo de Oração</h3>
+                        <p>Mulheres guerreiras que sustentam a igreja através da intercessão contínua.</p>
+                    </a>
                 </div>
+
                 <div class="card">
-                    <h3>Renovo Music</h3>
-                    <p>Dedicados a conduzir a igreja à presença de Deus através da música.</p>
+                    <a href="{% url 'galeria_music' %}" class="link-departamento">
+                        <img src="{% static 'musica.jpeg' %}" alt="Renovo Music" class="img-departamento">
+                        <h3>Renovo Music</h3>
+                        <p>Dedicados a conduzir a igreja à presença de Deus através da música.</p>
+                    </a>
                 </div>
+
             </div>
         </div>
     </section>

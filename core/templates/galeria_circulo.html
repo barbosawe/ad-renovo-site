@@ -1,0 +1,52 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Círculo de Oração - AD Renovo</title>
+    <link rel="icon" type="image/jpeg" href="{% static 'adrenovo1.jpeg' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}?v=3">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'logoRenovo.png' %}" alt="Logo AD Renovo" class="logo-image">
+            <span>AD Renovo</span>
+        </div>
+        <a href="{% url 'index' %}" class="btn-voltar">← Voltar ao Início</a>
+    </nav>
+
+    <header class="dept-header">
+        <div class="container">
+            <h1>Círculo de Oração</h1>
+            <p class="faixa-etaria">Faixa Etária: <strong>30 anos ou mais</strong></p>
+            <p class="dept-desc">Mulheres guerreiras que sustentam a igreja através da intercessão contínua.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2>Nossos Líderes</h2>
+            <div class="lideres-grid">
+                <div class="lider-card">
+                    <img src="{% static 'lider1.jpeg' %}" alt="Foto" class="lider-foto">
+                    <h3>Nome do Líder</h3>
+                    <p>Coordenador(a)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section bg-light">
+        <div class="container">
+            <h2>Galeria de Fotos</h2>
+            <div class="galeria-grid">
+                <img src="{% static 'fotokids1.jpeg' %}" alt="Evento" class="galeria-img">
+                <img src="{% static 'fotokids2.jpeg' %}" alt="Evento" class="galeria-img">
+            </div>
+        </div>
+    </section>
+</body>
+</html>
