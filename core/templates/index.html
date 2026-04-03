@@ -14,6 +14,13 @@
 </head>
 
 <body>
+
+    <div id="tela-carregamento" class="tela-carregamento">
+        <img src="{% static 'logoRenovo.png' %}" alt="Logo Carregando" class="logo-loader">
+    </div>
+
+    <nav id="inicio" class="navbar">
+        ...
 <nav id="inicio" class="navbar">
     <div class="logo">
         <img src="{% static 'logoRenovo.png' %}" alt="Logo AD Renovo" class="logo-image">
@@ -46,6 +53,24 @@
 </nav>
 
 <script>
+
+    // Adiciona a classe que impede a rolagem logo no início
+    document.body.classList.add("carregando");
+
+    // EFEITO DE CARREGAMENTO (PRELOADER)
+    window.addEventListener('load', function() {
+        // setTimeout cria um atraso dramático de 1.5 segundos (1500 milissegundos)
+        // Se quiser que suma mais rápido, diminua para 500 ou 1000
+        setTimeout(function() {
+            const loader = document.getElementById('tela-carregamento');
+            loader.classList.add('escondido');
+            document.body.classList.remove("carregando"); // Libera a rolagem do site
+        }, 1500); 
+    });
+
+    // ... Suas outras funções continuam aqui (toggleMenu, reveal, etc) ...
+
+
     function toggleMenu() {
         const navLinks = document.getElementById("navLinks");
         navLinks.classList.toggle("active");
@@ -69,6 +94,9 @@ window.addEventListener("scroll", reveal);
 
 // Executa uma vez ao carregar para mostrar o que já está na tela
 reveal();
+
+
+
 </script>
 
     <header class="hero">

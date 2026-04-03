@@ -2,18 +2,26 @@
    1. CONFIGURAÇÕES GLOBAIS E TEMA DARK
    ========================================= */
 :root {
-    --primary-color: #0F172A; /* Azul profundo (Navbar/Footer) */
-    --secondary-color: #D69E2E; /* Dourado */
-    --bg-dark: #1E293B; /* Fundo principal do site */
-    --bg-light-dark: #334155; /* Fundo alternativo das seções */
-    --card-bg: #0F172A; /* Fundo dos cartões */
-    --text-color: #F8FAFC; /* Texto principal claro */
-    --text-muted: #CBD5E1; /* Texto secundário */
+    --primary-color: #0F172A;
+    /* Azul profundo (Navbar/Footer) */
+    --secondary-color: #D69E2E;
+    /* Dourado */
+    --bg-dark: #1E293B;
+    /* Fundo principal do site */
+    --bg-light-dark: #334155;
+    /* Fundo alternativo das seções */
+    --card-bg: #0F172A;
+    /* Fundo dos cartões */
+    --text-color: #F8FAFC;
+    /* Texto principal claro */
+    --text-muted: #CBD5E1;
+    /* Texto secundário */
     --white: #FFFFFF;
 }
 
 html {
-    scroll-behavior: smooth; /* Rolagem suave ao clicar nos links */
+    scroll-behavior: smooth;
+    /* Rolagem suave ao clicar nos links */
 }
 
 * {
@@ -146,7 +154,7 @@ h2 {
     position: absolute;
     background-color: var(--primary-color);
     min-width: 220px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.5);
     z-index: 1001;
     border-radius: 5px;
     top: 100%;
@@ -162,7 +170,7 @@ h2 {
     text-align: left;
     font-weight: 400;
     font-size: 0.9rem;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .dropdown-content a:hover {
@@ -196,15 +204,22 @@ h2 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(214, 158, 46, 0.4)), 
-                url('adrenovoimagem.jpeg') center/cover;
+    background: linear-gradient(rgba(15, 23, 42, 0.8), rgba(214, 158, 46, 0.4)),
+        url('adrenovoimagem.jpeg') center/cover;
     animation: heroImageAnimation 5s ease-in-out infinite alternate;
-    z-index: -1; 
+    z-index: -1;
 }
 
 @keyframes heroImageAnimation {
-    0% { opacity: 0.7; transform: scale(1); }
-    100% { opacity: 1; transform: scale(1.05); }
+    0% {
+        opacity: 0.7;
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
 }
 
 .hero-subtitle {
@@ -212,7 +227,7 @@ h2 {
     font-weight: 600;
     color: var(--white);
     margin-bottom: 10px;
-    letter-spacing: 1.5px; 
+    letter-spacing: 1.5px;
     text-transform: uppercase;
     opacity: 0.9;
 }
@@ -220,7 +235,7 @@ h2 {
 .hero-title {
     font-size: 3rem;
     margin-bottom: 30px;
-    color: var(--secondary-color); 
+    color: var(--secondary-color);
     font-weight: 800;
     line-height: 1.1;
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
@@ -233,7 +248,7 @@ h2 {
     margin-bottom: 20px;
     font-size: 1.1rem;
     color: var(--text-muted);
-    text-align: justify; 
+    text-align: justify;
 }
 
 .pilares-lista {
@@ -253,7 +268,7 @@ h2 {
 }
 
 .pilares-lista li:hover {
-    transform: translateX(10px); 
+    transform: translateX(10px);
 }
 
 .pilares-lista li strong {
@@ -268,17 +283,17 @@ h2 {
     padding-top: 20px;
     margin-top: 20px;
     font-style: italic;
-    text-align: justify; 
+    text-align: justify;
     width: 100%;
 }
 
 .final-texto {
-    display: block; 
-    text-align: center; 
-    margin-top: 15px; 
-    color: var(--secondary-color); 
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: var(--secondary-color);
     font-weight: 700;
-    font-style: normal; 
+    font-style: normal;
     font-size: 1.1rem;
 }
 
@@ -308,7 +323,7 @@ h2 {
     color: var(--text-muted);
     padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     border-top: 4px solid var(--secondary-color);
 }
 
@@ -327,7 +342,7 @@ h2 {
     border-radius: 8px;
     max-width: 500px;
     margin: 30px auto 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 .pix-box h3 {
@@ -336,7 +351,7 @@ h2 {
 }
 
 .qr-placeholder {
-    width: 220px; 
+    width: 220px;
     height: auto;
     margin: 20px auto;
     display: flex;
@@ -345,10 +360,10 @@ h2 {
 }
 
 .qr-image {
-    width: 100%; 
+    width: 100%;
     height: auto;
-    border-radius: 10px; 
-    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
     border: 3px solid var(--white);
 }
 
@@ -363,7 +378,8 @@ h2 {
     gap: 15px;
 }
 
-.oracao-form input, .oracao-form textarea {
+.oracao-form input,
+.oracao-form textarea {
     padding: 15px;
     background-color: var(--bg-light-dark);
     color: var(--text-color);
@@ -372,7 +388,8 @@ h2 {
     font-size: 1rem;
 }
 
-.oracao-form input::placeholder, .oracao-form textarea::placeholder {
+.oracao-form input::placeholder,
+.oracao-form textarea::placeholder {
     color: #94A3B8;
 }
 
@@ -424,27 +441,28 @@ h2 {
    11. RESPONSIVIDADE (CELULAR E TABLETS)
    ========================================= */
 @media (max-width: 768px) {
+
     /* Menu Hambúrguer */
     .menu-icon {
-        display: block; 
+        display: block;
     }
 
     .nav-links {
         display: flex;
         flex-direction: column;
         position: absolute;
-        top: 70px; 
-        left: -100%; 
+        top: 70px;
+        left: -100%;
         width: 100%;
         background-color: var(--primary-color);
         text-align: center;
-        transition: 0.3s ease-in-out; 
+        transition: 0.3s ease-in-out;
         padding-bottom: 20px;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.5);
+        box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
     }
 
     .nav-links.active {
-        left: 0; 
+        left: 0;
     }
 
     .nav-links li {
@@ -455,13 +473,13 @@ h2 {
         position: relative;
         min-width: 100%;
         box-shadow: none;
-        background-color: rgba(0,0,0,0.2); 
+        background-color: rgba(0, 0, 0, 0.2);
     }
 
     /* HERO NO CELULAR ESTÁ AQUI */
     .hero {
-        min-height: 100vh; 
-        height: auto; 
+        min-height: 100vh;
+        height: auto;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -480,8 +498,8 @@ h2 {
         width: 100%;
         height: 100%;
         /* Força a imagem a esticar corretamente no celular */
-        background-attachment: scroll; 
-        background-size: cover !important; 
+        background-attachment: scroll;
+        background-size: cover !important;
         background-position: center center !important;
         z-index: -1;
     }
@@ -489,9 +507,61 @@ h2 {
     .hero-title {
         font-size: 1.8rem;
     }
-    
+
     .hero-subtitle {
-        font-size: 0.9rem; 
+        font-size: 0.9rem;
         margin-bottom: 15px;
     }
+}
+
+/* =========================================
+   TELA DE CARREGAMENTO (PRELOADER)
+   ========================================= */
+.tela-carregamento {
+    position: fixed;
+    /* Fica travada na tela */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    /* Fundo escuro elegante (pode trocar para #000 se quiser preto total) */
+    z-index: 99999;
+    /* Fica acima de tudo no site */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 1s ease, visibility 1s ease;
+    /* Efeito suave ao sumir */
+}
+
+/* Classe que o JavaScript vai adicionar para sumir com a tela */
+.tela-carregamento.escondido {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Animação da Logo (Efeito Rockstar de pulsar levemente) */
+.logo-loader {
+    width: 120px;
+    /* Tamanho da sua logo no centro (ajuste se precisar) */
+    height: auto;
+    animation: pulsarLogo 1.5s infinite alternate ease-in-out;
+}
+
+@keyframes pulsarLogo {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.6;
+    }
+
+    100% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+/* No site, para não ter rolagem enquanto carrega */
+body.carregando {
+    overflow: hidden;
 }
