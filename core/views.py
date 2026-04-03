@@ -9,6 +9,11 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import HttpResponse, JsonResponse
 import json
 
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes, force_str
+from django.contrib.auth.tokens import default_token_generator
+from django.urls import reverse
+
 from .models import AlunoCollege, Aula
 # 1. Função que carrega a página inicial
 def index(request):
@@ -73,18 +78,63 @@ def college_cadastro(request):
             return redirect('college_cadastro')
             
         user = User.objects.create_user(username=email, email=email, password=senha, first_name=nome)
-        AlunoCollege.objects.create(user=user, is_ativo=False) # Aluno começa inativo até pagar
+        user.is_active = False # Proteção contra Spam (bloqueia login)
+        user.save()
         
-        messages.success(request, 'Cadastro criado com sucesso! Faça login.')
-        return redirect('college_login')
+        AlunoCollege.objects.create(user=user, is_ativo=False) # Status de pagamento inativo
+        
+        # Gerar link de ativação
+        uid = urlsafe_base64_encode(force_bytes(user.pk))
+        token = default_token_generator.make_token(user)
+        link_ativacao = request.build_absolute_uri(
+            reverse('college_ativar', kwargs={'uidb64': uid, 'token': token})
+        )
+        
+        # Enviar e-mail
+        assunto = 'Ative sua conta no Renovo College'
+        mensagem = f'Olá {nome}!\n\nPor favor, confirme seu cadastro clicando no link abaixo:\n\n{link_ativacao}\n\nSe você não se cadastrou, ignore este e-mail.'
+        send_mail(
+            assunto,
+            mensagem,
+            'wellbarbosaft@gmail.com', # O remetente configurado no settings
+            [email],
+            fail_silently=False,
+        )
+        
+        return render(request, 'college_aguardando_email.html')
         
     return render(request, 'college_cadastro.html')
+
+def college_ativar_conta(request, uidb64, token):
+    try:
+        uid = force_str(urlsafe_base64_decode(uidb64))
+        user = User.objects.get(pk=uid)
+    except (TypeError, ValueError, OverflowError, User.DoesNotExist):
+        user = None
+
+    if user is not None and default_token_generator.check_token(user, token):
+        user.is_active = True
+        user.save()
+        messages.success(request, 'E-mail confirmado com sucesso! Faça seu login.')
+        return redirect('college_login')
+    else:
+        messages.error(request, 'Link de ativação inválido ou expirado.')
+        return redirect('college_login')
 
 def college_login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         senha = request.POST.get('senha')
         
+        # Checar manualmente se o e-mail existe mas não confirmou
+        try:
+            tentativa_user = User.objects.get(username=email)
+            if not tentativa_user.is_active:
+                messages.error(request, 'Sua conta não foi confirmada. Verifique seu e-mail (ou Lixo Eletrônico)!')
+                return render(request, 'college_login.html')
+        except User.DoesNotExist:
+            pass # Continua pro authenticate para dar usuário inválido
+            
         user = authenticate(request, username=email, password=senha)
         if user is not None:
             login(request, user)

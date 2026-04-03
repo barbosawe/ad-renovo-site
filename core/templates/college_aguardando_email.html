@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verifique seu E-mail</title>
+    <link rel="icon" type="image/jpeg" href="{% static 'adrenovo1.jpeg' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}?v=3">
+    <style>
+        .college-auth {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+        .auth-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        .auth-card h2 { margin-bottom: 20px; color: #1a1a1a; }
+        .auth-card p { color: #666; font-size: 1.1em; line-height: 1.5; margin-bottom: 20px;}
+        .auth-links { margin-top: 15px; font-size: 0.9em; }
+        .auth-links a { color: #2c3e50; text-decoration: underline; font-weight: bold; }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'logoRenovo.png' %}" alt="Logo AD Renovo" class="logo-image">
+            <span>Renovo College</span>
+        </div>
+        <a href="{% url 'inicio' %}" class="btn-voltar">← Voltar ao Início</a>
+    </nav>
+
+    <div class="container college-auth">
+        <div class="auth-card">
+            <h2>Quase lá! 📩</h2>
+            <p>
+                Nós enviamos um link de confirmação para o endereço de e-mail que você acabou de cadastrar.
+            </p>
+            <div style="background: #fdfae6; color: #8a6d3b; padding: 15px; border-radius: 8px; font-size: 0.9em; margin-bottom: 20px;">
+                <strong>Atenção:</strong> Se você não encontrar nosso e-mail após alguns minutos, lembre-se de verificar a <b>Caixa de Spam ou Lixo Eletrônico</b>.
+            </div>
+            <div class="auth-links">
+                <p>Já ativou sua conta pelo link? <a href="{% url 'college_login' %}">Faça o Login aqui</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

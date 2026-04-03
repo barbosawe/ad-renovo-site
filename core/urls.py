@@ -11,6 +11,7 @@ urlpatterns = [
     path('college/cadastro/', views.college_cadastro, name='college_cadastro'),
     path('college/', views.college_login, name='college_login'),
     path('college/logout/', views.college_logout, name='college_logout'),
+    path('college/ativar/<uidb64>/<token>/', views.college_ativar_conta, name='college_ativar'),
     path('college/dashboard/', views.college_dashboard, name='college_dashboard'),
     path('webhook/mercadopago/', views.webhook_mercadopago, name='webhook_mercadopago'),
 ]
