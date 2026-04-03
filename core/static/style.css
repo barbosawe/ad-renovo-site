@@ -190,6 +190,7 @@ h2 {
     width: 100%;
     /* Altura será ditada pela imagem HTML */
     background-color: var(--primary-color);
+    overflow: hidden; /* Evita que a animação da imagem passe da borda e crie rolagem da tela */
 }
 
 @keyframes heroImageAnimation {
@@ -531,4 +532,5 @@ body.carregando {
     width: 100%;
     height: auto;
     display: block;
+    animation: heroImageAnimation 5s ease-in-out infinite alternate;
 }
