@@ -36,6 +36,7 @@
             <li><a href="#departamentos" onclick="toggleMenu()">Departamentos</a></li>
             <li><a href="#oracao" onclick="toggleMenu()">Pedidos de Oração</a></li>
             <li><a href="#contribuicao" onclick="toggleMenu()">Dízimos e Ofertas</a></li>
+            <li><a href="{% url 'college_login' %}">Renovo College</a></li>
             
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Área do Membro ▾</a>
@@ -114,6 +115,14 @@
                         <img src="{% static 'musica.jpeg' %}" alt="Renovo Music" class="img-departamento">
                         <h3>Renovo Music</h3>
                         <p>Dedicados a conduzir a igreja à presença de Deus através da música.</p>
+                    </a>
+                </div>
+
+                <div class="card">
+                    <a href="{% url 'college_login' %}" class="link-departamento">
+                        <img src="{% static 'adrenovo1.jpeg' %}" alt="Renovo College" class="img-departamento">
+                        <h3>Renovo College</h3>
+                        <p>Nossa escola de teologia. Uma plataforma exclusiva de ensino para os alunos do ministério.</p>
                     </a>
                 </div>
 
