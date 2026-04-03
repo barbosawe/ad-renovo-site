@@ -1,8 +1,15 @@
 from django.core.mail import send_mail
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.shortcuts import render
 
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.http import HttpResponse, JsonResponse
+import json
+
+from .models import AlunoCollege, Aula
 # 1. Função que carrega a página inicial
 def index(request):
     return render(request, 'index.html')
@@ -53,3 +60,82 @@ def galeria_circulo(request):
 
 def galeria_music(request):
     return render(request, 'galeria_music.html')
+
+# 4. Funções Renovo College
+def college_cadastro(request):
+    if request.method == 'POST':
+        nome = request.POST.get('nome')
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        
+        if User.objects.filter(username=email).exists():
+            messages.error(request, 'E-mail já cadastrado!')
+            return redirect('college_cadastro')
+            
+        user = User.objects.create_user(username=email, email=email, password=senha, first_name=nome)
+        AlunoCollege.objects.create(user=user, is_ativo=False) # Aluno começa inativo até pagar
+        
+        messages.success(request, 'Cadastro criado com sucesso! Faça login.')
+        return redirect('college_login')
+        
+    return render(request, 'college_cadastro.html')
+
+def college_login(request):
+    if request.method == 'POST':
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+        
+        user = authenticate(request, username=email, password=senha)
+        if user is not None:
+            login(request, user)
+            return redirect('college_dashboard')
+        else:
+            messages.error(request, 'Usuário ou senha inválidos.')
+            
+    return render(request, 'college_login.html')
+
+def college_logout(request):
+    logout(request)
+    return redirect('college_login')
+
+@login_required(login_url='college_login')
+def college_dashboard(request):
+    try:
+        aluno = request.user.alunocollege
+    except AlunoCollege.DoesNotExist:
+        # Se por algum motivo for admin ou não tiver perfil, cria um inativo
+        aluno = AlunoCollege.objects.create(user=request.user, is_ativo=False)
+
+    if not aluno.is_ativo and not request.user.is_superuser:
+        return render(request, 'college_bloqueado.html')
+        
+    aulas = Aula.objects.all()
+    return render(request, 'college_dashboard.html', {'aulas': aulas, 'aluno': aluno})
+
+@csrf_exempt
+def webhook_mercadopago(request):
+    if request.method == 'POST':
+        try:
+            dados = json.loads(request.body)
+            # Lógica para Mercado Pago
+            # O webhook envia type="payment" e os dados. 
+            # Você precisa extrair o e-mail ou o id do cliente.
+            
+            # Exemplo (pseudocódigo):
+            # if dados.get('type') == 'payment':
+            #     email_pagador = dados['data']['payer']['email']
+            #     status = dados['data']['status']
+            #     
+            #     aluno = AlunoCollege.objects.filter(user__email=email_pagador).first()
+            #     if aluno:
+            #         if status == 'approved':
+            #             aluno.is_ativo = True
+            #         elif status in ['rejected', 'cancelled', 'refunded']:
+            #             aluno.is_ativo = False
+            #         aluno.save()
+
+            return HttpResponse(status=200)
+        except Exception as e:
+            print("Erro webhook:", e)
+            return HttpResponse(status=400)
+    return HttpResponse(status=405)

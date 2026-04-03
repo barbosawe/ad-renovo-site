@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Bloqueado - Renovo College</title>
+    <link rel="icon" type="image/jpeg" href="{% static 'adrenovo1.jpeg' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}?v=3">
+    <style>
+        .blocked-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+            text-align: center;
+            padding: 20px;
+        }
+        .blocked-card {
+            background: white;
+            padding: 50px 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 500px;
+        }
+        .blocked-card h2 { color: #c0392b; margin-bottom: 15px; }
+        .blocked-card p { color: #555; margin-bottom: 25px; line-height: 1.6; }
+        .btn-pay { display: inline-block; background: #27ae60; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; }
+        .btn-pay:hover { background: #2ecc71; }
+        .btn-logout { display: inline-block; background: #95a5a6; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-left: 10px; }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'logoRenovo.png' %}" alt="Logo AD Renovo" class="logo-image">
+            <span>Renovo College</span>
+        </div>
+    </nav>
+
+    <div class="container blocked-container">
+        <div class="blocked-card">
+            <h2>Acesso Pendente</h2>
+            <p>Sua assinatura encontra-se inativa ou aguardando confirmação de pagamento. Para acessar os conteúdos exclusivos de Teologia do Renovo College, regularize sua situação através do Mercado Pago.</p>
+            <p><i>Se você acabou de pagar, aguarde alguns minutos para o processamento.</i></p>
+            
+            <a href="#" class="btn-pay">Regularizar Pagamento</a> <!-- INSERIR SEU LINK DO MERCADO PAGO AQUI -->
+            <a href="{% url 'college_logout' %}" class="btn-logout">Sair</a>
+        </div>
+    </div>
+</body>
+</html>

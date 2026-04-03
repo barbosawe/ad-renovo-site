@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Renovo College</title>
+    <link rel="icon" type="image/jpeg" href="{% static 'adrenovo1.jpeg' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'style.css' %}?v=3">
+    <style>
+        .college-auth {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 80vh;
+        }
+        .auth-card {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .auth-card h2 { margin-bottom: 20px; color: #1a1a1a; }
+        .auth-form input {
+            width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 8px;
+        }
+        .btn-auth { width: 100%; background: #2c3e50; color: white; border: none; padding: 12px; border-radius: 8px; cursor: pointer; font-weight: bold; }
+        .btn-auth:hover { background: #34495e; }
+        .auth-links { margin-top: 15px; font-size: 0.9em; }
+        .auth-links a { color: #2c3e50; text-decoration: none; font-weight: bold; }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar">
+        <div class="logo">
+            <img src="{% static 'logoRenovo.png' %}" alt="Logo AD Renovo" class="logo-image">
+            <span>Renovo College</span>
+        </div>
+        <a href="{% url 'inicio' %}" class="btn-voltar">← Voltar ao Início</a>
+    </nav>
+
+    <div class="container college-auth">
+        <div class="auth-card">
+            <h2>Portal do Aluno</h2>
+            
+            {% if messages %}
+                {% for message in messages %}
+                {% if message.tags == 'success' %}
+                    <div style="color: green; margin-bottom: 15px; font-weight:bold;">{{ message }}</div>
+                {% else %}
+                    <div style="color: red; margin-bottom: 15px; font-weight:bold;">{{ message }}</div>
+                {% endif %}
+                {% endfor %}
+            {% endif %}
+
+            <form class="auth-form" action="{% url 'college_login' %}" method="POST">
+                {% csrf_token %}
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="password" name="senha" placeholder="Senha" required>
+                <button type="submit" class="btn-auth">Entrar</button>
+            </form>
+            <div class="auth-links">
+                <p>Estudante novo? <a href="{% url 'college_cadastro' %}">Crie sua conta</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
